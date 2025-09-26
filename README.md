@@ -17,7 +17,7 @@
 
 ## 🏗️ Project Structure  
 
-
+'''
 mini-newscollector/
 ├── app/
 │ ├── main.py # FastAPI application
@@ -31,6 +31,7 @@ mini-newscollector/
 │ └── ci-cd.yaml # GitHub Actions CI/CD pipeline
 └── README.md
 
+'''
 
 ---
 
@@ -73,3 +74,4 @@ pip install -r app/requirements.txt
 Start the application
 
 uvicorn app.main:app --reload
+
