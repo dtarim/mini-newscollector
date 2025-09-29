@@ -26,7 +26,7 @@ def refresh_articles():
         data = resp.json()
         ARTICLES = [
             {"title": hit["title"], "url": hit["url"]}
-            for hit in data.get("hits", [])[:5]  # ilk 5 haber
+            for hit in data.get("hits", [])[:5]  # first 5 news
             if hit.get("title") and hit.get("url")
         ]
         return {"count": len(ARTICLES), "articles": ARTICLES}
