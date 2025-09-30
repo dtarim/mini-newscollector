@@ -18,4 +18,4 @@ def test_refresh_and_articles():
     assert response.status_code == 200
     data = response.json()
     assert "articles" in data
-    assert isinstance(data["articles"], list)
+    assert isinstance(data["articles"], list)  #just checked for not working progress and new test result in github actions!!
