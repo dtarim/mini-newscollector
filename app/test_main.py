@@ -19,3 +19,5 @@ def test_refresh_and_articles():
     data = response.json()
     assert "articles" in data
     assert isinstance(data["articles"], list)  #just checked for not working progress and new test result in github actions!!
+
+    #test passed
