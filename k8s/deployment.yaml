@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mini-newscollector
-        image: dtarim/mini-newscollector:latest
+        image: dtarim/mini-newscollector:a0332aa
         ports:
         - containerPort: 8000
