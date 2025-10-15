@@ -21,16 +21,41 @@
 mini-newscollector/
 ├── app/
 │ ├── main.py # FastAPI application
+| ├── __init__.py 
 │ ├── requirements.txt # Python dependencies
+| ├── test_main.py
 ├── Dockerfile # Container build file
 ├── k8s/
 │ ├── deployment.yaml # Kubernetes Deployment
 │ ├── service.yaml # Kubernetes Service
+| ├── argocd-application.yaml # Kubernetes DevOps
 ├── .github/
 │ └── workflows/
 │ └── ci-cd.yaml # GitHub Actions CI/CD pipeline
 └── README.md
 ```
+# 📰 Mini News Collector
+
+## Overview
+Mini News Collector is a small, extensible DevOps learning project:
+- FastAPI service that fetches headlines from a public source.
+- Dockerized and CI-tested.
+- Image builds are pushed to Docker Hub and Kubernetes deployments are managed through GitOps (ArgoCD).
+
+## What we automated
+- **CI**: On every push to `main`, GitHub Actions:
+  - runs tests,
+  - builds and pushes Docker images (tags: `latest` and `sha7`),
+  - updates `k8s/deployment.yaml` with the new image tag and pushes the change back to this repo.
+- **CD (GitOps)**: ArgoCD watches this repo's `k8s/` folder and automatically syncs changes to the Kubernetes cluster (minikube / EKS).
+
+## How to see it locally
+1. Start Minikube:
+   ```bash
+   minikube start
+
+
+
 
 ---
 
@@ -73,5 +98,6 @@ pip install -r app/requirements.txt
 Start the application
 
 uvicorn app.main:app --reload
+
 
 
